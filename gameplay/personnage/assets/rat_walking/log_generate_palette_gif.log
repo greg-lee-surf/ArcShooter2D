@@ -1,0 +1,108 @@
+ffmpeg version 4.1.6-1~deb10u1 Copyright (c) 2000-2020 the FFmpeg developers
+  built with gcc 8 (Debian 8.3.0-6)
+  configuration: --prefix=/usr --extra-version='1~deb10u1' --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --enable-avresample --disable-filter=resample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libjack --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librsvg --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-lv2 --enable-omx --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libx264 --enable-shared
+  libavutil      56. 22.100 / 56. 22.100
+  libavcodec     58. 35.100 / 58. 35.100
+  libavformat    58. 20.100 / 58. 20.100
+  libavdevice    58.  5.100 / 58.  5.100
+  libavfilter     7. 40.101 /  7. 40.101
+  libavresample   4.  0.  0 /  4.  0.  0
+  libswscale      5.  3.100 /  5.  3.100
+  libswresample   3.  3.100 /  3.  3.100
+  libpostproc    55.  3.100 / 55.  3.100
+Splitting the commandline.
+Reading option '-v' ... matched as option 'v' (set logging level) with argument 'debug'.
+Reading option '-nostdin' ... matched as option 'stdin' (enable or disable interaction on standard input) with argument 0.
+Reading option '-progress' ... matched as option 'progress' (write program-readable progress information) with argument '/tmp/KritaFFmpegProgress.cERYcZ'.
+Reading option '-r' ... matched as option 'r' (set frame rate (Hz value, fraction or abbreviation)) with argument '8'.
+Reading option '-start_number' ... matched as AVOption 'start_number' with argument '0'.
+Reading option '-i' ... matched as input url with argument '/home/greg-lee/Images/rat_walking%04d.png'.
+Reading option '-vf' ... matched as option 'vf' (set video filters) with argument 'palettegen'.
+Reading option '-y' ... matched as option 'y' (overwrite output files) with argument '1'.
+Reading option '/home/greg-lee/Images/palette.png' ... matched as output url.
+Finished splitting the commandline.
+Parsing a group of options: global .
+Applying option v (set logging level) with argument debug.
+Applying option nostdin (enable or disable interaction on standard input) with argument 0.
+Applying option progress (write program-readable progress information) with argument /tmp/KritaFFmpegProgress.cERYcZ.
+[file @ 0x56523ac68b00] Setting default whitelist 'file,crypto'
+Applying option y (overwrite output files) with argument 1.
+Successfully parsed a group of options.
+Parsing a group of options: input url /home/greg-lee/Images/rat_walking%04d.png.
+Applying option r (set frame rate (Hz value, fraction or abbreviation)) with argument 8.
+Successfully parsed a group of options.
+Opening an input file: /home/greg-lee/Images/rat_walking%04d.png.
+[image2 @ 0x56523ac69080] Opening '/home/greg-lee/Images/rat_walking0000.png' for reading
+[file @ 0x56523ac6e640] Setting default whitelist 'file,crypto'
+[AVIOContext @ 0x56523ac76780] Statistics: 1011 bytes read, 0 seeks
+[image2 @ 0x56523ac69080] Opening '/home/greg-lee/Images/rat_walking0001.png' for reading
+[file @ 0x56523ac74e80] Setting default whitelist 'file,crypto'
+[AVIOContext @ 0x56523ac750c0] Statistics: 1053 bytes read, 0 seeks
+[image2 @ 0x56523ac69080] Opening '/home/greg-lee/Images/rat_walking0002.png' for reading
+[file @ 0x56523ac75ac0] Setting default whitelist 'file,crypto'
+[AVIOContext @ 0x56523ac75cc0] Statistics: 1010 bytes read, 0 seeks
+[image2 @ 0x56523ac69080] Opening '/home/greg-lee/Images/rat_walking0003.png' for reading
+[file @ 0x56523ac75b80] Setting default whitelist 'file,crypto'
+[AVIOContext @ 0x56523ac76480] Statistics: 1047 bytes read, 0 seeks
+Input #0, image2, from '/home/greg-lee/Images/rat_walking%04d.png':
+  Duration: 00:00:00.16, start: 0.000000, bitrate: N/A
+    Stream #0:0, 4, 1/25: Video: png, 1 reference frame, rgba(pc), 64x64 [SAR 11811:11811 DAR 1:1], 0/1, 25 fps, 25 tbr, 25 tbn, 25 tbc
+Successfully opened the file.
+Parsing a group of options: output url /home/greg-lee/Images/palette.png.
+Applying option vf (set video filters) with argument palettegen.
+Successfully parsed a group of options.
+Opening an output file: /home/greg-lee/Images/palette.png.
+Successfully opened the file.
+detected 4 logical cores
+Stream mapping:
+  Stream #0:0 -> #0:0 (png (native) -> png (native))
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+    Last message repeated 4 times
+[graph 0 input from stream 0:0 @ 0x56523ac75cc0] Setting 'video_size' to value '64x64'
+[graph 0 input from stream 0:0 @ 0x56523ac75cc0] Setting 'pix_fmt' to value '26'
+[graph 0 input from stream 0:0 @ 0x56523ac75cc0] Setting 'time_base' to value '1/8'
+[graph 0 input from stream 0:0 @ 0x56523ac75cc0] Setting 'pixel_aspect' to value '11811/11811'
+[graph 0 input from stream 0:0 @ 0x56523ac75cc0] Setting 'sws_param' to value 'flags=2'
+[graph 0 input from stream 0:0 @ 0x56523ac75cc0] Setting 'frame_rate' to value '8/1'
+[graph 0 input from stream 0:0 @ 0x56523ac75cc0] w:64 h:64 pixfmt:rgba tb:1/8 fr:8/1 sar:11811/11811 sws_param:flags=2
+[format @ 0x56523ac80f80] Setting 'pix_fmts' to value 'rgb24|rgba|rgb48be|rgba64be|pal8|gray|ya8|gray16be|ya16be|monob'
+[auto_scaler_0 @ 0x56523ac83580] Setting 'flags' to value 'bicubic'
+[auto_scaler_0 @ 0x56523ac83580] w:iw h:ih flags:'bicubic' interl:0
+[Parsed_palettegen_0 @ 0x56523ac80e80] auto-inserting filter 'auto_scaler_0' between the filter 'graph 0 input from stream 0:0' and the filter 'Parsed_palettegen_0'
+[auto_scaler_1 @ 0x56523ac85480] Setting 'flags' to value 'bicubic'
+[auto_scaler_1 @ 0x56523ac85480] w:iw h:ih flags:'bicubic' interl:0
+[format @ 0x56523ac80f80] auto-inserting filter 'auto_scaler_1' between the filter 'Parsed_palettegen_0' and the filter 'format'
+[AVFilterGraph @ 0x56523ac68680] query_formats: 4 queried, 1 merged, 2 already done, 0 delayed
+[auto_scaler_1 @ 0x56523ac85480] picking rgba out of 10 ref:bgra alpha:1
+[swscaler @ 0x56523ac86780] Forcing full internal H chroma due to input having non subsampled chroma
+[auto_scaler_0 @ 0x56523ac83580] w:64 h:64 fmt:rgba sar:11811/11811 -> w:64 h:64 fmt:bgra sar:1/1 flags:0x4
+[swscaler @ 0x56523ac9ab80] Forcing full internal H chroma due to input having non subsampled chroma
+[auto_scaler_1 @ 0x56523ac85480] w:16 h:16 fmt:bgra sar:1/1 -> w:16 h:16 fmt:rgba sar:1/1 flags:0x4
+Output #0, image2, to '/home/greg-lee/Images/palette.png':
+  Metadata:
+    encoder         : Lavf58.20.100
+    Stream #0:0, 0, 1/8: Video: png, 1 reference frame, rgba, 16x16 [SAR 1:1 DAR 1:1], 0/1, q=2-31, 200 kb/s, 8 fps, 8 tbn, 8 tbc
+    Metadata:
+      encoder         : Lavc58.35.100 png
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+    Last message repeated 3 times
+[Parsed_palettegen_0 @ 0x56523ac80e80] 5(+1) colors generated out of 5 colors; ratio=1.000000
+[Parsed_palettegen_0 @ 0x56523ac80e80] Dupped color: FF000000
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+Clipping frame in rate conversion by 0.000008
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[out_0_0 @ 0x56523ac81700] EOF on sink link out_0_0:default.
+No more output streams to write to, finishing.
+[image2 @ 0x56523ac6f880] Opening '/home/greg-lee/Images/palette.png' for writing
+[file @ 0x56523ae07f00] Setting default whitelist 'file,crypto'
+[AVIOContext @ 0x56523ae08240] Statistics: 0 seeks, 1 writeouts
+frame=    1 fps=0.0 q=-0.0 Lsize=N/A time=00:00:00.12 bitrate=N/A speed=11.7x    
+[AVIOContext @ 0x56523ac68f00] Statistics: 0 seeks, 1 writeouts
+video:0kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+Input file #0 (/home/greg-lee/Images/rat_walking%04d.png):
+  Input stream #0:0 (video): 4 packets read (4121 bytes); 4 frames decoded; 
+  Total: 4 packets (4121 bytes) demuxed
+Output file #0 (/home/greg-lee/Images/palette.png):
+  Output stream #0:0 (video): 1 frames encoded; 1 packets muxed (120 bytes); 
+  Total: 1 packets (120 bytes) muxed
+4 frames successfully decoded, 0 decoding errors

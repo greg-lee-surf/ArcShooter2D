@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://gameplay/personnage/Personnage.gd" type="Script" id=1]
+[ext_resource path="res://gameplay/personnage/assets/rat_walking/rat_walking0000.png" type="Texture" id=2]
+[ext_resource path="res://gameplay/personnage/assets/rat_walking/rat_walking0001.png" type="Texture" id=3]
+[ext_resource path="res://gameplay/personnage/assets/rat_walking/rat_walking0002.png" type="Texture" id=4]
+[ext_resource path="res://gameplay/personnage/assets/rat_walking/rat_walking0003.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "walk",
+"speed": 12.0
+} ]
+
+[node name="Personnage" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 2
+collision_mask = 5
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 6.6991, -30.3845, 22.5103, -20.1072, 13.2871, 12.8328, 10.9154, 27.3264, 12.4965, 30.4887, -9.37562, 31.5428, -22.5516, 25.4818, -17.8083, -5.8771 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="Label" type="Label" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -19.0
+margin_top = -47.0
+margin_right = 21.0
+margin_bottom = -33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
