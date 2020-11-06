@@ -1,595 +1,97 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://gameplay/monde/monde_test/assets/tronc.png" type="Texture" id=1]
-[ext_resource path="res://gameplay/monde/monde_test/assets/feuillage.png" type="Texture" id=2]
-[ext_resource path="res://gameplay/monde/monde_test/assets/sol_herbeux.png" type="Texture" id=3]
+[ext_resource path="res://gameplay/monde/grotte/GrotteAutoTile.tres" type="TileSet" id=1]
 [ext_resource path="res://gameplay/ennemis/poule/poule.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gameplay/personnage/Personnage.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gameplay/monde/foret/assets/background_tree.png" type="Texture" id=6]
+[ext_resource path="res://gameplay/monde/foret/assets/ciel.png" type="Texture" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="ImageTexture" id=1]
+flags = 3
+flags = 3
 
-custom_solver_bias = 0.0
-extents = Vector2( 30, 30 )
-
-[node name="SalleTest" type="Node2D" index="0"]
-
-[node name="Arbre" type="StaticBody2D" parent="." index="0"]
-
-editor/display_folded = true
-position = Vector2( 450, 420 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 1.0
-_sections_unfolded = [ "Collision" ]
-
-[node name="Tronc1" type="Sprite" parent="Arbre" index="0"]
-
-position = Vector2( 0, 30 )
-texture = ExtResource( 1 )
-
-[node name="Tronc2" type="Sprite" parent="Arbre" index="1"]
-
-position = Vector2( 0, 90 )
-texture = ExtResource( 1 )
-
-[node name="feuillage1" type="Sprite" parent="Arbre" index="2"]
-
-position = Vector2( 0, -30 )
-texture = ExtResource( 2 )
-
-[node name="feuillage2" type="Sprite" parent="Arbre" index="3"]
-
-position = Vector2( 60, -30 )
-texture = ExtResource( 2 )
-
-[node name="feuillage3" type="Sprite" parent="Arbre" index="4"]
-
-position = Vector2( 60, -90 )
-texture = ExtResource( 2 )
-
-[node name="feuillage7" type="Sprite" parent="Arbre" index="5"]
-
-position = Vector2( 0, -90 )
-texture = ExtResource( 2 )
-
-[node name="feuillage8" type="Sprite" parent="Arbre" index="6"]
-
-position = Vector2( 120, -90 )
-texture = ExtResource( 2 )
-
-[node name="feuillage9" type="Sprite" parent="Arbre" index="7"]
-
-position = Vector2( 60, -150 )
-texture = ExtResource( 2 )
-
-[node name="feuillage10" type="Sprite" parent="Arbre" index="8"]
-
-position = Vector2( 0, -150 )
-texture = ExtResource( 2 )
-
-[node name="feuillage11" type="Sprite" parent="Arbre" index="9"]
-
-position = Vector2( -60, -150 )
-texture = ExtResource( 2 )
-
-[node name="feuillage4" type="Sprite" parent="Arbre" index="10"]
-
-position = Vector2( -60, -30 )
-texture = ExtResource( 2 )
-
-[node name="feuillage5" type="Sprite" parent="Arbre" index="11"]
-
-position = Vector2( -60, -90 )
-texture = ExtResource( 2 )
-
-[node name="feuillage6" type="Sprite" parent="Arbre" index="12"]
-
-position = Vector2( -120, -90 )
-texture = ExtResource( 2 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Arbre" index="13"]
-
-build_mode = 1
-polygon = PoolVector2Array( 30, 0, 90, 0, 90, -60, 150, -60, 150, -120, 90, -120, 90, -180, 30, -180, 30, -180, -30, -180, -30, -180, -90, -180, -90, -120, -150, -120, -150, -60, -90, -60, -90, 0, -30, 0, -30, 120, 30, 120 )
-
-[node name="sol" type="Node2D" parent="." index="1"]
-
-editor/display_folded = true
-
-[node name="tuile_herbe1" type="StaticBody2D" parent="sol" index="0"]
-
-editor/display_folded = true
-position = Vector2( 270, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_group_": true
+[sub_resource type="Animation" id=2]
+resource_name = "Ciel"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ParallaxBackground/ParallaxLayer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.298039, 0.290196, 0.4, 1 ), Color( 0.533333, 0.00784314, 0.00784314, 1 ), Color( 0.298039, 0.290196, 0.4, 1 ) ]
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe1" index="0"]
+[node name="SalleTest" type="Node2D"]
 
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe1" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe2" type="StaticBody2D" parent="sol" index="1"]
-
-editor/display_folded = true
-position = Vector2( 210, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe2" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe2" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe3" type="StaticBody2D" parent="sol" index="2"]
-
-editor/display_folded = true
-position = Vector2( 150, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe3" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe3" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe4" type="StaticBody2D" parent="sol" index="3"]
-
-editor/display_folded = true
-position = Vector2( 90, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe4" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe4" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe5" type="StaticBody2D" parent="sol" index="4"]
-
-editor/display_folded = true
-position = Vector2( 30, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe5" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe5" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe6" type="StaticBody2D" parent="sol" index="5"]
-
-editor/display_folded = true
-position = Vector2( 330, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe6" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe6" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe7" type="StaticBody2D" parent="sol" index="6"]
-
-editor/display_folded = true
-position = Vector2( 390, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe7" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe7" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe8" type="StaticBody2D" parent="sol" index="7"]
-
-editor/display_folded = true
-position = Vector2( 450, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe8" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe8" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe9" type="StaticBody2D" parent="sol" index="8"]
-
-editor/display_folded = true
-position = Vector2( 510, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe9" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe9" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe10" type="StaticBody2D" parent="sol" index="9"]
-
-editor/display_folded = true
-position = Vector2( 570, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe10" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe10" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe11" type="StaticBody2D" parent="sol" index="10"]
-
-editor/display_folded = true
-position = Vector2( 630, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe11" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe11" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe12" type="StaticBody2D" parent="sol" index="11"]
-
-editor/display_folded = true
-position = Vector2( 690, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe12" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe12" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe13" type="StaticBody2D" parent="sol" index="12"]
-
-editor/display_folded = true
-position = Vector2( 750, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe13" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe13" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe14" type="StaticBody2D" parent="sol" index="13"]
-
-editor/display_folded = true
-position = Vector2( 810, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe14" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe14" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe15" type="StaticBody2D" parent="sol" index="14"]
-
-editor/display_folded = true
-position = Vector2( 870, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe15" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe15" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe16" type="StaticBody2D" parent="sol" index="15"]
-
-editor/display_folded = true
-position = Vector2( 930, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe16" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe16" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="tuile_herbe17" type="StaticBody2D" parent="sol" index="16"]
-
-editor/display_folded = true
-position = Vector2( 990, 570 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 6
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sol/tuile_herbe17" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="sol/tuile_herbe17" index="1"]
-
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Region" ]
-
-[node name="poule" parent="." index="2" instance=ExtResource( 4 )]
-
+[node name="poule" parent="." instance=ExtResource( 4 )]
 position = Vector2( 810, 290 )
 
-[node name="poule4" parent="." index="3" instance=ExtResource( 4 )]
+[node name="poule2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 928.928, 361.734 )
 
-position = Vector2( 150, 140 )
+[node name="poule3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 473.981, 339.081 )
 
-[node name="poule5" parent="." index="4" instance=ExtResource( 4 )]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enable = true
 
-position = Vector2( 100, 330 )
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 0.298039, 0.290196, 0.4, 1 )
+motion_scale = Vector2( 0.01, 0.01 )
+motion_mirroring = Vector2( 1020, 600 )
 
-[node name="poule6" parent="." index="5" instance=ExtResource( 4 )]
+[node name="Ciel" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 7 )
+normal_map = SubResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1020, 600 )
 
-position = Vector2( 310, 190 )
+[node name="Arbre1" type="Sprite" parent="ParallaxBackground"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 177.194, 514.643 )
+texture = ExtResource( 6 )
 
-[node name="poule7" parent="." index="6" instance=ExtResource( 4 )]
+[node name="Arbre2" type="Sprite" parent="ParallaxBackground"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 428.194, 514.643 )
+texture = ExtResource( 6 )
 
-position = Vector2( 910, 40 )
+[node name="Arbre3" type="Sprite" parent="ParallaxBackground"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 563.194, 515.643 )
+texture = ExtResource( 6 )
 
-[node name="poule8" parent="." index="7" instance=ExtResource( 4 )]
+[node name="Arbre4" type="Sprite" parent="ParallaxBackground"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 678.194, 517.643 )
+texture = ExtResource( 6 )
 
-position = Vector2( 720, 140 )
+[node name="Arbre5" type="Sprite" parent="ParallaxBackground"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 912.194, 517.643 )
+texture = ExtResource( 6 )
 
-[node name="poule9" parent="." index="8" instance=ExtResource( 4 )]
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+collision_mask = 6
+format = 1
+tile_data = PoolIntArray( 131071, 0, 1, 65536, 0, 65536, 65537, 0, 65536, 65538, 0, 65536, 65539, 0, 65536, 65540, 0, 65536, 65541, 0, 65536, 65542, 0, 65536, 65543, 0, 65536, 65544, 0, 65536, 65545, 0, 65536, 65546, 0, 9, 65547, 0, 196609, 65548, 0, 196609, 65549, 0, 196609, 65550, 0, 196609, 65551, 0, 196609, 65552, 0, 196609, 65553, 0, 196609, 65554, 0, 10, 65555, 0, 2, 196607, 0, 131073, 131072, 0, 196619, 131073, 0, 3, 131074, 0, 131072, 131075, 0, 131072, 131076, 0, 131072, 131077, 0, 131072, 131078, 0, 131072, 131079, 0, 131072, 131080, 0, 131072, 131081, 0, 131072, 131082, 0, 65545, 131090, 0, 65537, 131091, 0, 65547, 131092, 0, 7, 262143, 0, 131073, 196608, 0, 3, 196609, 0, 65538, 196618, 0, 65541, 196628, 0, 65541, 327679, 0, 131073, 262144, 0, 131074, 262154, 0, 131077, 262164, 0, 131075, 262165, 0, 196609, 262166, 0, 196610, 393215, 0, 65546, 327680, 0, 65538, 327700, 0, 65541, 327703, 0, 1, 327704, 0, 2, 458751, 0, 65541, 393236, 0, 65542, 393237, 0, 196609, 393238, 0, 196609, 393239, 0, 196614, 393240, 0, 65539, 393241, 0, 65536, 393242, 0, 2, 524287, 0, 65541, 458764, 0, 5, 458768, 0, 5, 458771, 0, 5, 458775, 0, 65537, 458776, 0, 131072, 458777, 0, 4, 458778, 0, 65539, 458779, 0, 65536, 458780, 0, 65536, 458781, 0, 2, 589823, 0, 65541, 524293, 0, 1, 524294, 0, 2, 524300, 0, 65541, 524304, 0, 8, 524305, 0, 2, 524307, 0, 65541, 524313, 0, 65537, 524314, 0, 131072, 524315, 0, 131072, 524316, 0, 4, 524317, 0, 65539, 524318, 0, 9, 524319, 0, 196610, 655359, 0, 8, 589824, 0, 65536, 589825, 0, 65536, 589826, 0, 65536, 589827, 0, 65536, 589828, 0, 65536, 589829, 0, 65540, 589830, 0, 65539, 589831, 0, 65536, 589832, 0, 65536, 589833, 0, 65536, 589834, 0, 65536, 589835, 0, 65536, 589836, 0, 131082, 589837, 0, 65536, 589838, 0, 65536, 589839, 0, 65536, 589840, 0, 131078, 589841, 0, 65547, 589842, 0, 196609, 589843, 0, 196612, 589852, 0, 65537, 589853, 0, 196618, 589854, 0, 65538, 720895, 0, 65537, 655360, 0, 131072, 655361, 0, 131072, 655362, 0, 131072, 655363, 0, 131072, 655364, 0, 131072, 655365, 0, 131072, 655366, 0, 131072, 655367, 0, 131072, 655368, 0, 131072, 655369, 0, 131072, 655370, 0, 131072, 655371, 0, 131072, 655372, 0, 131072, 655373, 0, 131072, 655374, 0, 131072, 655375, 0, 131072, 655376, 0, 65538, 655379, 0, 65541, 655389, 0, 65541, 720915, 0, 65541, 720923, 0, 6, 720924, 0, 196609, 720925, 0, 65543, 786451, 0, 65541, 786459, 0, 65541, 851986, 0, 6, 851987, 0, 65543, 851995, 0, 65542, 851996, 0, 7, 917522, 0, 65541, 917532, 0, 65541, 983058, 0, 65541, 983068, 0, 65541, 1048594, 0, 65542, 1048595, 0, 7, 1048603, 0, 6, 1048604, 0, 65543, 1114131, 0, 65542, 1114132, 0, 196610, 1114139, 0, 65541, 1179669, 0, 196608, 1179670, 0, 196609, 1179671, 0, 196609, 1179672, 0, 196609, 1179673, 0, 196609, 1179674, 0, 196609, 1179675, 0, 65543 )
 
-position = Vector2( 710, 460 )
+[node name="AnimationDecor" type="AnimationPlayer" parent="."]
+autoplay = "Ciel"
+anims/Ciel = SubResource( 2 )
 
-[node name="poule10" parent="." index="9" instance=ExtResource( 4 )]
+[node name="Personnage" parent="." instance=ExtResource( 5 )]
+position = Vector2( 200, 454 )
 
-position = Vector2( 610, 260 )
+[node name="AnimatedBody" parent="Personnage" index="1"]
+frame = 5
 
-[node name="poule2" parent="." index="10" instance=ExtResource( 4 )]
-
-position = Vector2( 890, 470 )
-
-[node name="poule3" parent="." index="11" instance=ExtResource( 4 )]
-
-position = Vector2( 430, 140 )
-
-[node name="Information" type="Control" parent="." index="12"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 390.0
-margin_top = 60.0
-margin_right = 430.0
-margin_bottom = 100.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-
-[node name="Label" type="Label" parent="Information" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 10.0
-margin_top = 70.0
-margin_right = 50.0
-margin_bottom = 84.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Personnage" parent="." index="13" instance=ExtResource( 5 )]
-
-position = Vector2( 240, 480 )
-
-
+[editable path="Personnage"]

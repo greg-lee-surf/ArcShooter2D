@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 enum {
 	INACTIF,
@@ -7,10 +7,11 @@ enum {
 	ATTAQUE
 }
 
-const ZONE_DETECTION = 400 # Un rayon de 400 pixels
+const ZONE_DETECTION = 300 # Un rayon de 400 pixels
 const ANGLE_VISION = PI / 2 # Vision de l'ennemi
 const ACCELERATION = 30
 
+var pv = 3 # points de vie
 var vitesse = 50
 var vitesse_max = 200
 var etat = INACTIF
@@ -50,17 +51,17 @@ func _physics_process(delta):
 			vitesse = 0
 			
 		MOUVEMENT:
-			move(delta, vitesse_max)
+			move(vitesse_max)
 			vitesse_max = 200
 
 		ATTAQUE:
-			move(delta, vitesse_max)
+			move(vitesse_max)
 			$Label.text = "À l'attaque !!!"
 
 
-func move(delta, vitesse_max):
+func move(vitesse_max):
 	vitesse = min(vitesse + ACCELERATION, vitesse_max)
-	position += direction * vitesse * delta
+	move_and_slide(direction * vitesse, Vector2(0, -1))
 	position.x = clamp(position.x, 64, taille_ecran.x - 64)
 	position.y = clamp(position.y, 64, taille_ecran.y - 64)
 	if direction.x > 0:
@@ -96,3 +97,11 @@ func detecte_joueur(distance):
 func _on_TimerAttack_timeout():
 	"""Quand le timer s'arrête, l'attaque peut reprendre"""
 	$TimerAttack.set_wait_time(4)
+
+
+func _on_Area2D_body_entered(body):
+	if "fleche" in body.name:
+		$AfficheDegat.text = "10 dégats"
+		pv -= 1
+		if pv == 0:
+			queue_free()

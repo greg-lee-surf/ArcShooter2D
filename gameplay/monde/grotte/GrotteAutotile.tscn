@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://gameplay/monde/grotte/grotte_autotile.png" type="Texture" id=1]
+
+
+[node name="GrotteAutotile" type="Node2D"]
+
+[node name="GrotteAutoTile" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
